@@ -1,0 +1,54 @@
+{
+  // VS Code 디버그 및 실행 설정 파일
+  // F5 키나 디버그 메뉴에서 사용되는 구성들을 정의
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // GDB 디버거를 사용한 SFML 디버깅 구성
+      "name": "Debug SFML (GDB)",
+      "type": "cppdbg", // C++ 디버깅 타입
+      "request": "launch", // 프로그램 시작
+      "program": "${workspaceFolder}/build/SFML_Study.exe", // 실행할 프로그램 경로
+      "args": [], // 프로그램 실행 인수 (없음)
+      "stopAtEntry": false, // main 함수에서 자동 정지 안함
+      "cwd": "${workspaceFolder}", // 작업 디렉토리
+      "environment": [
+        // 환경 변수 설정
+        {
+          "name": "PATH",
+          "value": "C:\\msys64\\mingw64\\bin;${env:PATH}" // MinGW64 PATH 추가
+        }
+      ],
+      "externalConsole": false, // 내부 콘솔에서 실행
+      "MIMode": "gdb", // GDB 디버거 사용
+      "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe", // GDB 실행 파일 경로
+      "preLaunchTask": "Build SFML Project (Debug Only)", // 실행 전 빌드 작업 수행 (실행 안함)
+      "setupCommands": [
+        // GDB 초기 설정 명령어들
+        {
+          "description": "Enable pretty-printing for gdb", // GDB 예쁜 출력 활성화
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true // 실패해도 무시
+        }
+      ]
+    },
+    {
+      // 디버깅 없이 실행만 하는 구성
+      "name": "Run SFML (No Debug)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/build/SFML_Study.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}",
+      "environment": [
+        {
+          "name": "PATH",
+          "value": "C:\\msys64\\mingw64\\bin;${env:PATH}"
+        }
+      ],
+      "externalConsole": false, // 내부 콘솔에서 실행
+      "preLaunchTask": "Build SFML Project (Debug Only)" // 실행 전 빌드 작업 수행 (실행 안함)
+    }
+  ]
+}

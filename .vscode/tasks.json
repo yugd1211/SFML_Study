@@ -1,0 +1,114 @@
+{
+  // VS Code 작업(Tasks) 설정 파일
+  // 빌드, 컴파일, 실행 등의 자동화된 작업을 정의
+  "version": "2.0.0",
+  "tasks": [
+    {
+      // 기본 빌드 작업 - scripts/build_mingw.bat 스크립트 실행
+      "label": "Build SFML Project (MinGW)",
+      "type": "shell", // 셸 명령어로 실행
+      "command": "${workspaceFolder}/scripts/build_mingw.bat", // 실행할 배치 파일
+      "group": {
+        "kind": "build", // 빌드 그룹에 속함
+        "isDefault": true // 기본 빌드 작업 (Ctrl+Shift+B)
+      },
+      "presentation": {
+        "echo": true, // 실행 명령어를 터미널에 표시
+        "reveal": "always", // 터미널을 항상 표시
+        "focus": false, // 터미널에 포커스 하지 않음
+        "panel": "shared" // 공유 터미널 패널 사용
+      },
+      "problemMatcher": "$gcc" // GCC 컴파일러 오류 파싱
+    },
+    {
+      // CMake를 사용한 빌드 작업
+      "label": "Build with CMake (MinGW)",
+      "type": "shell",
+      "command": "cmake", // CMake 명령어 실행
+      "args": ["--build", "${workspaceFolder}/build", "--config", "Release"], // 빌드 인수
+      "options": {
+        "cwd": "${workspaceFolder}", // 작업 디렉토리
+        "env": {
+          "PATH": "C:\\msys64\\mingw64\\bin;${env:PATH}" // MinGW PATH 환경변수 추가
+        }
+      },
+      "group": "build",
+      "dependsOn": "Configure CMake (MinGW)", // CMake 구성 작업 먼저 실행
+      "problemMatcher": "$gcc"
+    },
+    {
+      // CMake 구성 작업 - Makefile 생성
+      "label": "Configure CMake (MinGW)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-S",
+        ".", // 소스 디렉토리 (현재 폴더)
+        "-B",
+        "build", // 빌드 디렉토리
+        "-G",
+        "MinGW Makefiles", // MinGW Makefiles 생성기 사용
+        "-DCMAKE_BUILD_TYPE=Release" // 릴리즈 모드로 빌드
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}",
+        "env": {
+          "PATH": "C:\\msys64\\mingw64\\bin;${env:PATH}"
+        }
+      },
+      "group": "build",
+      "problemMatcher": [] // CMake 구성은 문제 매처 없음
+    },
+    {
+      // Make를 직접 사용한 빌드 작업
+      "label": "Build with Make",
+      "type": "shell",
+      "command": "mingw32-make", // MinGW Make 명령어
+      "options": {
+        "cwd": "${workspaceFolder}", // 작업 디렉토리
+        "env": {
+          "PATH": "C:\\msys64\\mingw64\\bin;${env:PATH}" // MinGW PATH 환경변수 추가
+        }
+      },
+      "group": "build",
+      "problemMatcher": "$gcc" // GCC 컴파일러 오류 파싱
+    },
+    {
+      // 빌드 폴더 정리 작업
+      "label": "Clean Build",
+      "type": "shell",
+      "command": "powershell", // PowerShell 사용
+      "args": [
+        "-Command",
+        "if (Test-Path '${workspaceFolder}/build') { Remove-Item '${workspaceFolder}/build' -Recurse -Force }"
+      ], // build 폴더를 재귀적으로 삭제
+      "group": "build"
+    },
+    {
+      // SFML 프로그램 실행 작업
+      "label": "Run SFML Program",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/SFML_Study.exe", // 빌드된 실행 파일 경로
+      "group": "test", // 테스트 그룹에 속함
+      "dependsOn": "Build SFML Project (MinGW)" // 빌드 작업 완료 후 실행
+    },
+    {
+      // VS Code 디버깅 전용 - 빌드만 하고 실행하지 않음
+      "label": "Build SFML Project (Debug Only)",
+      "type": "shell",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "cd /d \"${workspaceFolder}\" && set PATH=C:\\msys64\\mingw64\\bin;%PATH% && if not exist build mkdir build && cd build && cmake .. -G \"MinGW Makefiles\" -DCMAKE_BUILD_TYPE=Debug && mingw32-make"
+      ],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": "$gcc"
+    }
+  ]
+}

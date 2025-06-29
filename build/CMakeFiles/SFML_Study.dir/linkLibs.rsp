@@ -1,0 +1,1 @@
+ -lsfml-graphics -lsfml-window -lsfml-audio -lsfml-network -lsfml-system -static-libgcc -static-libstdc++ -lwinmm -lgdi32 -lopengl32 -lfreetype -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
