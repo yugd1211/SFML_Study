@@ -1,3 +1,0 @@
-C:\msys64\mingw64\bin\cmake.exe -E rm -f CMakeFiles\SFML_Study.dir/objects.a
-C:\msys64\mingw64\bin\ar.exe qc CMakeFiles\SFML_Study.dir/objects.a @CMakeFiles\SFML_Study.dir\objects1.rsp
-C:\msys64\mingw64\bin\c++.exe  -static-libstdc++ -static-libgcc -O3 -DNDEBUG -Wl,--whole-archive CMakeFiles\SFML_Study.dir/objects.a -Wl,--no-whole-archive -o SFML_Study.exe -Wl,--out-implib,libSFML_Study.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\SFML_Study.dir\linkLibs.rsp

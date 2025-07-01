@@ -1,144 +1,107 @@
-# SFML_Study
+# C++ SFML Project - Automated Setup
 
-C++ SFML 라이브러리 공부용 레포지토리입니다
+This project provides a fully automated C++ SFML development environment for Windows with VS Code. Just press F5 and everything (MinGW, CMake, SFML) will be automatically installed and configured!
 
-## 📁 프로젝트 구조
+## Features
 
-```
-SFML_Study/
-├── src/                    # 소스 코드
-│   └── main.cpp           # 메인 프로그램
-├── include/               # 헤더 파일
-├── scripts/               # 빌드 및 설정 스크립트
-│   ├── build_mingw.bat    # Windows MinGW 빌드 스크립트
-│   ├── build_msys2.sh     # MSYS2 빌드 스크립트
-│   ├── setup_msys2_env.sh # MSYS2 환경 설정 스크립트
-│   └── check_installation.bat # 설치 확인 스크립트
-├── docs/                  # 문서 파일들
-│   ├── MSYS2_SETUP.md     # MSYS2 설치 가이드
-│   └── INSTALL_GUIDE.md   # 일반 설치 가이드
-├── .vscode/               # VS Code 설정
-│   ├── tasks.json         # 빌드 작업 설정
-│   ├── launch.json        # 디버그 설정
-│   ├── settings.json      # 워크스페이스 설정
-│   └── extensions.json    # 권장 확장 기능
-├── build/                 # 빌드 출력 (생성됨)
-├── vcpkg/                 # 패키지 관리자 (선택사항)
-├── CMakeLists.txt         # CMake 설정 파일
-├── Makefile              # Make 빌드 파일
-└── README.md             # 이 파일
-```
+- ✅ **One-Click Setup**: Press F5 to automatically install and configure everything
+- ✅ **No Admin Rights Required**: All tools are installed to user directory (`%USERPROFILE%\DevTools`)
+- ✅ **Portable Installation**: Works on any Windows machine
+- ✅ **Auto Build & Debug**: Complete CMake build and debugging setup
+- ✅ **Cross-User Compatible**: Uses environment variables for different users
 
-## 🚀 빠른 시작
+## Quick Start
 
-### 1. 설치 확인
-
-```bash
-# Windows에서
-scripts\check_installation.bat
-
-# MSYS2에서
-bash scripts/setup_msys2_env.sh
-```
-
-### 2. 빌드 및 실행
-
-```bash
-# Windows MinGW (권장)
-scripts\build_mingw.bat
-
-# MSYS2 터미널
-bash scripts/build_msys2.sh
-
-# VS Code에서
-Ctrl+Shift+B (기본 빌드 작업)
-```
-
-## 📋 설치 및 빌드 방법
-
-## Windows 빌드
-
-### vscode : MSYS2 + MinGW (권장)
-
-1. **MSYS2 설치**: [docs/MSYS2_SETUP.md](docs/MSYS2_SETUP.md) 참조
-2. **필수 패키지 설치**:
+1. **Clone this repository**:
    ```bash
-   pacman -S mingw-w64-x86_64-toolchain
-   pacman -S mingw-w64-x86_64-cmake
-   pacman -S mingw-w64-x86_64-sfml
+   git clone <repository-url>
+   cd SFML_Study
    ```
-3. **빌드**: `scripts\build_mingw.bat` 실행
 
-### visual studio : 기존 방법들
+2. **Open in VS Code**:
+   ```bash
+   code .
+   ```
 
-- Visual Studio + vcpkg
-- 사전 컴파일된 SFML 바이너리
+3. **Press F5** and wait for automatic setup:
+   - MinGW (TDM-GCC) will be downloaded and installed
+   - CMake will be downloaded and installed  
+   - SFML library will be downloaded and installed
+   - Project will be built and executed automatically
 
-자세한 내용은 [docs/INSTALL_GUIDE.md](docs/INSTALL_GUIDE.md) 참조
+That's it! The SFML window should open and you're ready to develop.
 
-## 🎮 VS Code 사용법
+## Project Structure
 
-### 단축키
-
-- `Ctrl+Shift+B`: 기본 빌드
-- `F5`: 디버그 실행
-- `Ctrl+F5`: 디버그 없이 실행
-
-### 작업 목록
-
-- **Build SFML Project (MinGW)**: 기본 빌드 작업
-- **Build with CMake (MinGW)**: CMake 수동 빌드
-- **Configure CMake (MinGW)**: CMake 구성만
-- **Build with Make**: Make 직접 사용
-- **Clean Build**: 빌드 폴더 정리
-- **Run SFML Program**: 프로그램 실행
-
-## 📚 SFML 기본 개념
-
-### 주요 모듈
-
-- **System**: 벡터, 시간, 스레드 등 기본 시스템 기능
-- **Window**: 윈도우 생성 및 이벤트 처리
-- **Graphics**: 2D 그래픽 렌더링
-- **Audio**: 오디오 재생
-- **Network**: 네트워크 통신
-
-### 기본 구조
-
-```cpp
-#include <SFML/Graphics.hpp>
-
-int main() {
-    // 1. 윈도우 생성
-    sf::RenderWindow window(sf::VideoMode(800, 600), "제목");
-
-    // 2. 메인 루프
-    while (window.isOpen()) {
-        // 3. 이벤트 처리
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-        // 4. 화면 클리어
-        window.clear();
-
-        // 5. 객체 그리기
-        // window.draw(객체);
-
-        // 6. 화면 업데이트
-        window.display();
-    }
-
-    return 0;
-}
+```
+cpp-sfml-project
+├── src
+│   └── main.cpp          # Main application source file
+├── scripts
+│   ├── setup-mingw.bat   # Script to install MinGW
+│   └── install-dependencies.bat # Script to install required dependencies
+├── CMakeLists.txt        # CMake configuration file
+├── .vscode
+│   ├── launch.json       # Debug configuration for VS Code
+│   ├── tasks.json        # Build tasks for the project
+│   └── c_cpp_properties.json # IntelliSense configuration
+└── README.md             # Project documentation
 ```
 
-## 🔧 문제 해결
+## What Gets Installed Automatically
 
-### 자주 발생하는 문제
+When you press F5, the following tools are automatically downloaded and installed to `%USERPROFILE%\DevTools`:
 
-1. **"gcc를 찾을 수 없습니다"**: MSYS2 PATH 설정 확인
-2. **"SFML을 찾을 수 없습니다"**: PKG_CONFIG_PATH 설정 확인
-3. **DLL 오류**: MSYS2 터미널에서 실행하거나 DLL 복사
+- **MinGW (TDM-GCC 64-bit)**: C++ compiler toolchain
+- **CMake**: Build system generator  
+- **SFML 2.6.1**: Graphics and multimedia library
+
+All installations are:
+- Portable (no registry changes)
+- User-specific (no admin rights needed)
+- Environment variable based (works for any user)
+
+## Manual Setup (Alternative)
+
+If you prefer manual setup, run these scripts in order:
+
+```bash
+# 1. Install MinGW compiler
+scripts/setup-mingw.bat
+
+# 2. Install CMake and SFML
+scripts/install-dependencies.bat
+
+# 3. Set up environment variables
+scripts/setup-environment.bat
+
+# 4. Build project
+cmake -G "MinGW Makefiles" -S . -B build
+cmake --build build
+
+# 5. Run executable
+cd build && ./cpp-sfml-project.exe
+```
+
+## Troubleshooting
+
+**"unable to start debugging. the value of midebuggerpath is invalid"**
+- This error occurs if gdb is not found in PATH
+- The project automatically handles multiple installation paths
+- If the error persists, restart VS Code after setup
+
+**Build folder doesn't exist**
+- The project automatically creates the build folder when needed
+- CMake uses `-B build` flag to create the directory structure
+
+**Permission errors**
+- All installations use user directory (`%USERPROFILE%\DevTools`)
+- No administrator privileges required
+
+## Usage
+
+Once the project is built successfully, the application will open a window initialized with SFML. You can modify the `src/main.cpp` file to implement your game logic or graphical application features.
+
+## Contributing
+
+Feel free to contribute to this project by submitting issues or pull requests. Your contributions are welcome!

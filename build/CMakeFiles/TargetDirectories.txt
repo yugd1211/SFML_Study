@@ -1,3 +1,3 @@
-C:/Users/dbrud/Documents/SFML_Study/build/CMakeFiles/SFML_Study.dir
-C:/Users/dbrud/Documents/SFML_Study/build/CMakeFiles/edit_cache.dir
-C:/Users/dbrud/Documents/SFML_Study/build/CMakeFiles/rebuild_cache.dir
+C:/Users/dbrud/Developemnt/SFML_Study/build/CMakeFiles/cpp-sfml-project.dir
+C:/Users/dbrud/Developemnt/SFML_Study/build/CMakeFiles/edit_cache.dir
+C:/Users/dbrud/Developemnt/SFML_Study/build/CMakeFiles/rebuild_cache.dir
