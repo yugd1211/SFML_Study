@@ -68,11 +68,26 @@ include CMakeFiles/cpp-sfml-project.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/cpp-sfml-project.dir/flags.make
 
+CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj: CMakeFiles/cpp-sfml-project.dir/flags.make
+CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj: CMakeFiles/cpp-sfml-project.dir/includes_CXX.rsp
+CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj: C:/Users/dbrud/Developemnt/SFML_Study/src/Window.cpp
+CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj: CMakeFiles/cpp-sfml-project.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\dbrud\Developemnt\SFML_Study\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj"
+	C:\dev-tools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj -MF CMakeFiles\cpp-sfml-project.dir\src\Window.cpp.obj.d -o CMakeFiles\cpp-sfml-project.dir\src\Window.cpp.obj -c C:\Users\dbrud\Developemnt\SFML_Study\src\Window.cpp
+
+CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.i"
+	C:\dev-tools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\dbrud\Developemnt\SFML_Study\src\Window.cpp > CMakeFiles\cpp-sfml-project.dir\src\Window.cpp.i
+
+CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.s"
+	C:\dev-tools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\dbrud\Developemnt\SFML_Study\src\Window.cpp -o CMakeFiles\cpp-sfml-project.dir\src\Window.cpp.s
+
 CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj: CMakeFiles/cpp-sfml-project.dir/flags.make
 CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj: CMakeFiles/cpp-sfml-project.dir/includes_CXX.rsp
 CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj: C:/Users/dbrud/Developemnt/SFML_Study/src/main.cpp
 CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj: CMakeFiles/cpp-sfml-project.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\dbrud\Developemnt\SFML_Study\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\dbrud\Developemnt\SFML_Study\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj"
 	C:\dev-tools\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj -MF CMakeFiles\cpp-sfml-project.dir\src\main.cpp.obj.d -o CMakeFiles\cpp-sfml-project.dir\src\main.cpp.obj -c C:\Users\dbrud\Developemnt\SFML_Study\src\main.cpp
 
 CMakeFiles/cpp-sfml-project.dir/src/main.cpp.i: cmake_force
@@ -85,11 +100,13 @@ CMakeFiles/cpp-sfml-project.dir/src/main.cpp.s: cmake_force
 
 # Object files for target cpp-sfml-project
 cpp__sfml__project_OBJECTS = \
+"CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj" \
 "CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj"
 
 # External object files for target cpp-sfml-project
 cpp__sfml__project_EXTERNAL_OBJECTS =
 
+cpp-sfml-project.exe: CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj
 cpp-sfml-project.exe: CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj
 cpp-sfml-project.exe: CMakeFiles/cpp-sfml-project.dir/build.make
 cpp-sfml-project.exe: C:/Users/dbrud/DevTools/SFML/lib/libsfml-graphics-d.a
@@ -98,7 +115,7 @@ cpp-sfml-project.exe: C:/Users/dbrud/DevTools/SFML/lib/libsfml-system-d.a
 cpp-sfml-project.exe: CMakeFiles/cpp-sfml-project.dir/linkLibs.rsp
 cpp-sfml-project.exe: CMakeFiles/cpp-sfml-project.dir/objects1.rsp
 cpp-sfml-project.exe: CMakeFiles/cpp-sfml-project.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\dbrud\Developemnt\SFML_Study\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cpp-sfml-project.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\dbrud\Developemnt\SFML_Study\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable cpp-sfml-project.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\cpp-sfml-project.dir\link.txt --verbose=$(VERBOSE)
 	C:\dev-tools\cmake\bin\cmake.exe -E copy_if_different C:\Users\dbrud/DevTools/SFML/bin/openal32.dll C:/Users/dbrud/Developemnt/SFML_Study/build
 	C:\dev-tools\cmake\bin\cmake.exe -E copy_if_different C:\Users\dbrud/DevTools/SFML/bin/sfml-audio-2.dll C:/Users/dbrud/Developemnt/SFML_Study/build

@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/dbrud/Developemnt/SFML_Study/src/Window.cpp" "CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj" "gcc" "CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj.d"
   "C:/Users/dbrud/Developemnt/SFML_Study/src/main.cpp" "CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj" "gcc" "CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj.d"
   )
 

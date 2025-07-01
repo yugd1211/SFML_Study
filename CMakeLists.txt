@@ -29,8 +29,22 @@ find_package(SFML 2.6 COMPONENTS graphics window system REQUIRED)
 # Include directories
 include_directories(${SFML_INCLUDE_DIRS})
 
-# Create executable
-add_executable(cpp-sfml-project src/main.cpp)
+# Collect all source files from src directory
+file(GLOB_RECURSE SOURCES "src/*.cpp" "src/*.c" "src/*.cxx")
+
+# If no source files found, fallback to main.cpp
+if(NOT SOURCES)
+    set(SOURCES "src/main.cpp")
+    message(WARNING "No source files found in src/, using main.cpp")
+else()
+    message(STATUS "Found source files: ${SOURCES}")
+endif()
+
+# Create executable with all source files
+add_executable(cpp-sfml-project ${SOURCES})
+
+# Add include directories for headers in src/
+target_include_directories(cpp-sfml-project PRIVATE src)
 
 # Link libraries
 target_link_libraries(cpp-sfml-project sfml-graphics sfml-window sfml-system)

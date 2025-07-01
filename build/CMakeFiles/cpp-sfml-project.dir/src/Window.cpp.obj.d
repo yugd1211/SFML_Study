@@ -1,5 +1,6 @@
-CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj: \
- C:\Users\dbrud\Developemnt\SFML_Study\src\main.cpp \
+CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj: \
+ C:\Users\dbrud\Developemnt\SFML_Study\src\Window.cpp \
+ C:\Users\dbrud\Developemnt\SFML_Study\src\Window.hpp \
  C:/Users/dbrud/DevTools/SFML/include/SFML/Graphics.hpp \
  C:/Users/dbrud/DevTools/SFML/include/SFML/Window.hpp \
  C:/Users/dbrud/DevTools/SFML/include/SFML/System.hpp \
@@ -252,9 +253,7 @@ CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj: \
  C:/Users/dbrud/DevTools/SFML/include/SFML/Graphics/Sprite.hpp \
  C:/Users/dbrud/DevTools/SFML/include/SFML/Graphics/Text.hpp \
  C:/Users/dbrud/DevTools/SFML/include/SFML/Graphics/VertexBuffer.hpp \
+ C:\Users\dbrud\Developemnt\SFML_Study\src\Singleton.hpp \
  C:/dev-tools/mingw64/include/c++/15.1.0/iostream \
  C:/dev-tools/mingw64/include/c++/15.1.0/istream \
- C:/dev-tools/mingw64/include/c++/15.1.0/bits/istream.tcc \
- C:\Users\dbrud\Developemnt\SFML_Study\src\Color.hpp \
- C:\Users\dbrud\Developemnt\SFML_Study\src\Window.hpp \
- C:\Users\dbrud\Developemnt\SFML_Study\src\Singleton.hpp
+ C:/dev-tools/mingw64/include/c++/15.1.0/bits/istream.tcc

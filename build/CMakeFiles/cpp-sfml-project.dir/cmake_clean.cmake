@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj"
+  "CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj.d"
   "CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj"
   "CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj.d"
   "cpp-sfml-project.exe"

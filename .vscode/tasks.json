@@ -2,10 +2,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Setup MinGW",
+            "label": "Quick Check All Tools",
             "type": "shell",
-            "command": "where",
-            "args": ["g++"],
+            "command": "where g++ && where cmake && echo All tools found",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -15,43 +14,23 @@
                 "shell": {
                     "executable": "cmd.exe",
                     "args": ["/c"]
+                },
+                "env": {
+                    "PATH": "${env:PATH};${env:USERPROFILE}\\DevTools\\TDM-GCC-64\\bin;C:\\dev-tools\\mingw64\\bin;${env:USERPROFILE}\\DevTools\\cmake\\bin;C:\\dev-tools\\cmake\\bin"
                 }
             },
             "presentation": {
                 "echo": true,
-                "reveal": "always",
+                "reveal": "silent",
                 "focus": false,
                 "panel": "shared"
             }
         },
         {
-            "label": "Install Dependencies",
+            "label": "Install Missing Tools",
             "type": "shell",
-            "command": "where",
-            "args": ["cmake"],
+            "command": "(where g++ >nul 2>&1 || echo MinGW missing) && (where cmake >nul 2>&1 || echo CMake missing) && echo Tool check completed",
             "group": "build",
-            "dependsOn": "Setup MinGW",
-            "problemMatcher": [],
-            "options": {
-                "shell": {
-                    "executable": "cmd.exe",
-                    "args": ["/c"]
-                }
-            },
-            "presentation": {
-                "echo": true,
-                "reveal": "always",
-                "focus": false,
-                "panel": "shared"
-            }
-        },
-        {
-            "label": "Setup Environment",
-            "type": "shell",
-            "command": "echo",
-            "args": ["Environment setup completed"],
-            "group": "build",
-            "dependsOn": "Install Dependencies",
             "problemMatcher": [],
             "options": {
                 "shell": {
@@ -65,6 +44,29 @@
             "presentation": {
                 "echo": true,
                 "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Setup Environment",
+            "type": "shell",
+            "command": "echo",
+            "args": ["Environment ready for build"],
+            "group": "build",
+            "problemMatcher": [],
+            "options": {
+                "shell": {
+                    "executable": "cmd.exe",
+                    "args": ["/c"]
+                },
+                "env": {
+                    "PATH": "${env:PATH};${env:USERPROFILE}\\DevTools\\TDM-GCC-64\\bin;C:\\dev-tools\\mingw64\\bin;${env:USERPROFILE}\\DevTools\\cmake\\bin;C:\\dev-tools\\cmake\\bin"
+                }
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
                 "focus": false,
                 "panel": "shared"
             }
@@ -151,11 +153,25 @@
             }
         },
         {
+            "label": "Quick Build All",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Quick Check All Tools",
+                "Setup Environment",
+                "CMake Build",
+                "Build Project",
+                "Run Project"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
             "label": "Build All",
             "dependsOrder": "sequence",
             "dependsOn": [
-                "Setup MinGW",
-                "Install Dependencies",
+                "Install Missing Tools",
                 "Setup Environment",
                 "CMake Build",
                 "Build Project",
