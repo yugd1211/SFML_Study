@@ -49,11 +49,50 @@
             }
         },
         {
+            "label": "Clean Only",
+            "type": "shell",
+            "command": "if exist build\\CMakeFiles rmdir /s /q build\\CMakeFiles && echo Build artifacts cleaned || echo No build artifacts to clean",
+            "group": "build",
+            "problemMatcher": [],
+            "options": {
+                "shell": {
+                    "executable": "cmd.exe",
+                    "args": ["/c"]
+                }
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
+            "label": "Clean Build",
+            "type": "shell",
+            "command": "if exist build\\CMakeFiles rmdir /s /q build\\CMakeFiles && echo Build artifacts cleaned || echo No build artifacts to clean",
+            "group": "build",
+            "problemMatcher": [],
+            "options": {
+                "shell": {
+                    "executable": "cmd.exe",
+                    "args": ["/c"]
+                }
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            }
+        },
+        {
             "label": "Setup Environment",
             "type": "shell",
             "command": "echo",
             "args": ["Environment ready for build"],
             "group": "build",
+            "dependsOn": "Clean Build",
             "problemMatcher": [],
             "options": {
                 "shell": {
@@ -156,6 +195,7 @@
             "label": "Quick Build All",
             "dependsOrder": "sequence",
             "dependsOn": [
+                "Clean Build",
                 "Quick Check All Tools",
                 "Setup Environment",
                 "CMake Build",
@@ -171,6 +211,7 @@
             "label": "Build All",
             "dependsOrder": "sequence",
             "dependsOn": [
+                "Clean Build",
                 "Install Missing Tools",
                 "Setup Environment",
                 "CMake Build",

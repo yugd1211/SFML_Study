@@ -128,6 +128,30 @@ cpp-sfml-project/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\cpp-sfml-project.dir\build.make CMakeFiles/cpp-sfml-project.dir/build
 .PHONY : cpp-sfml-project/fast
 
+src/Board.obj: src/Board.cpp.obj
+.PHONY : src/Board.obj
+
+# target to build an object file
+src/Board.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cpp-sfml-project.dir\build.make CMakeFiles/cpp-sfml-project.dir/src/Board.cpp.obj
+.PHONY : src/Board.cpp.obj
+
+src/Board.i: src/Board.cpp.i
+.PHONY : src/Board.i
+
+# target to preprocess a source file
+src/Board.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cpp-sfml-project.dir\build.make CMakeFiles/cpp-sfml-project.dir/src/Board.cpp.i
+.PHONY : src/Board.cpp.i
+
+src/Board.s: src/Board.cpp.s
+.PHONY : src/Board.s
+
+# target to generate assembly for a file
+src/Board.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\cpp-sfml-project.dir\build.make CMakeFiles/cpp-sfml-project.dir/src/Board.cpp.s
+.PHONY : src/Board.cpp.s
+
 src/Window.obj: src/Window.cpp.obj
 .PHONY : src/Window.obj
 
@@ -185,6 +209,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... cpp-sfml-project
+	@echo ... src/Board.obj
+	@echo ... src/Board.i
+	@echo ... src/Board.s
 	@echo ... src/Window.obj
 	@echo ... src/Window.i
 	@echo ... src/Window.s
