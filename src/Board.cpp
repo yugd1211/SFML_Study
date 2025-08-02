@@ -44,9 +44,6 @@ void Board::Initialize()
 	// 버퍼 생성
 	CreateWallBuffer();
 	CreateGridBuffer();
-
-	// std::cout << "Board initialized with size: " << BOARD_SIZE << "x" << BOARD_SIZE << std::endl;
-	// std::cout << "Cell size: " << CELL_SIZE << "x" << CELL_SIZE << std::endl;
 }
 
 bool Board::IsWall(int x, int y) const
@@ -126,7 +123,8 @@ int Board::GetCell(int x, int y) const
 	{
 		return board[y][x];
 	}
-	return 1; // 범위 밖은 벽으로 간주
+	// 범위 밖은 벽으로 간주
+	return 1;
 }
 
 bool Board::CanMoveTo(int x, int y) const

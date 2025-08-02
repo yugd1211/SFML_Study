@@ -1,3 +1,4 @@
+// --- src/Window.hpp ---
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "Singleton.hpp"
@@ -26,15 +27,13 @@ public:
 	void Close();
 	bool IsOpen() const;
 	bool PollEvent(sf::Event &event);
-	void DrawPlayer(const sf::RectangleShape &player);
 
-	// 그리기 메서드
+	// Draw(const sf::Drawable &drawable) 함수는 SFML이 그릴 수 있는 모든 것(sf::Drawable을 상속하는 모든 객체)을
+	// 윈도우에 그리는 역할을 합니다.
 	void Draw(const sf::Drawable &drawable);
 
-	// 윈도우 직접 접근 (필요한 경우)
 	sf::RenderWindow *GetRenderWindow() const;
 
-	// 윈도우 크기 관련
 	sf::Vector2u GetSize() const;
 	void SetSize(unsigned int width, unsigned int height);
 };
