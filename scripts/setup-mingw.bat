@@ -1,61 +1,76 @@
 @echo off
+setlocal EnableDelayedExpansion
 echo Checking MinGW installation...
 
-REM Set user-specific paths (no admin rights needed)
+REM Set user-specific paths
 SET USER_TOOLS=%USERPROFILE%\DevTools
-SET MINGW_PATH=%USER_TOOLS%\mingw64\bin
-SET TDM_GCC_PATH=%USER_TOOLS%\TDM-GCC-64\bin
-SET SYSTEM_MINGW=C:\dev-tools\mingw64\bin
+SET MINGW_INSTALL_PATH=%USER_TOOLS%\mingw64
+SET MINGW_BIN_PATH=%MINGW_INSTALL_PATH%\bin
+SET SEVEN_ZIP_PATH=%USER_TOOLS%\7-Zip
+SET SEVEN_ZIP_EXE=%SEVEN_ZIP_PATH%\7z.exe
 
-REM Check if g++ is available in PATH
-where g++ >nul 2>nul
-if %errorlevel% equ 0 (
-    echo MinGW is already installed and available in PATH.
-    g++ --version
+REM Check if MinGW-w64 13.1.0 is already installed
+if exist "!MINGW_BIN_PATH!\g++.exe" (
+    echo MinGW-w64 GCC 13.1.0 found at !MINGW_BIN_PATH!
+    echo GCC Version:
+    "!MINGW_BIN_PATH!\g++.exe" --version
     goto :EOF
 )
 
-REM Check if MinGW exists in user folder
-if exist "%MINGW_PATH%\g++.exe" (
-    echo MinGW found at %MINGW_PATH%
-    set PATH=%PATH%;%MINGW_PATH%
-    goto :EOF
-)
-
-if exist "%TDM_GCC_PATH%\g++.exe" (
-    echo TDM-GCC found at %TDM_GCC_PATH%
-    set PATH=%PATH%;%TDM_GCC_PATH%
-    goto :EOF
-)
-
-REM Check if MinGW exists in system folder
-if exist "%SYSTEM_MINGW%\g++.exe" (
-    echo MinGW found at %SYSTEM_MINGW%
-    set PATH=%PATH%;%SYSTEM_MINGW%
-    goto :EOF
-)
-
-echo MinGW not found. Installing TDM-GCC (portable, no admin rights needed)...
+echo MinGW-w64 GCC 13.1.0 not found. Installing...
 
 REM Create user tools directory
-if not exist "%USER_TOOLS%" mkdir "%USER_TOOLS%"
+if not exist "!USER_TOOLS!" mkdir "!USER_TOOLS!"
 
-REM Download TDM-GCC (portable version)
-echo Downloading TDM-GCC...
-curl -L -o "%USER_TOOLS%\tdm-gcc-installer.exe" "https://jmeubank.github.io/tdm-gcc/download/tdm64-gcc-10.3.0-2.exe"
-if %errorlevel% neq 0 (
-    echo Failed to download TDM-GCC installer.
+REM Download 7-Zip if not present
+if not exist "!SEVEN_ZIP_EXE!" (
+    echo Downloading 7-Zip...
+    curl -LO "https://www.7-zip.org/a/7z2301-x64.exe"
+    if !errorlevel! neq 0 (
+        echo Failed to download 7-Zip installer.
+        exit /b 1
+    )
+    
+    echo Installing 7-Zip...
+    start /wait 7z2301-x64.exe /S /D="!SEVEN_ZIP_PATH!"
+    del 7z2301-x64.exe
+    if not exist "!SEVEN_ZIP_EXE!" (
+        echo 7-Zip installation failed.
+        exit /b 1
+    )
+)
+
+REM Download MinGW-w64 GCC 13.1.0 (7z archive) from niXman/mingw-builds-binaries
+SET MINGW_ARCHIVE_URL="https://github.com/niXman/mingw-builds-binaries/releases/download/13.1.0-rt_v11-rev1/x86_64-13.1.0-release-posix-seh-ucrt-rt_v11-rev1.7z"
+SET MINGW_ARCHIVE_NAME=x86_64-13.1.0-release-posix-seh-ucrt-rt_v11-rev1.7z
+SET MINGW_EXTRACT_DIR=mingw64
+SET MINGW_DOWNLOAD_PATH="!USER_TOOLS!\!MINGW_ARCHIVE_NAME!"
+
+echo Downloading MinGW-w64 GCC 13.1.0...
+curl -L -o "!MINGW_DOWNLOAD_PATH!" !MINGW_ARCHIVE_URL!
+if !errorlevel! neq 0 (
+    echo Failed to download MinGW-w64.
     exit /b 1
 )
 
-echo Installing TDM-GCC to user directory...
-cd /d "%USER_TOOLS%"
-tdm-gcc-installer.exe /S /D="%USER_TOOLS%\TDM-GCC-64"
-del tdm-gcc-installer.exe
+echo Extracting MinGW-w64...
+"!SEVEN_ZIP_EXE!" x "!MINGW_DOWNLOAD_PATH!" -o"!USER_TOOLS!" -y
+if !errorlevel! neq 0 (
+    echo Failed to extract MinGW-w64.
+    exit /b 1
+)
+
+REM Rename the extracted directory to 'mingw64' for consistency (niXman builds usually extract directly to mingw64)
+REM if not exist "!MINGW_INSTALL_PATH!" ren "!USER_TOOLS!\!MINGW_EXTRACT_DIR!" mingw64
+del "!MINGW_DOWNLOAD_PATH!"
 
 REM Add to current session PATH
-set PATH=%PATH%;%USER_TOOLS%\TDM-GCC-64\bin
+set "PATH=!PATH!;!MINGW_BIN_PATH!"
 
-echo TDM-GCC installation completed.
+REM Add to user-level PATH (requires setx)
+echo Setting user-level PATH...
+setx PATH "%PATH%;!MINGW_BIN_PATH!" > nul 2>&1
+
+echo MinGW-w64 GCC 13.1.0 installation completed.
 echo GCC Version:
-"%USER_TOOLS%\TDM-GCC-64\bin\g++.exe" --version
+"!MINGW_BIN_PATH!\g++.exe" --version

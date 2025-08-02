@@ -8,16 +8,16 @@
             "program": "${workspaceFolder}/build/cpp-sfml-project.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/build",
             "environment": [
                 {
                     "name": "PATH",
-                    "value": "${env:USERPROFILE}\\DevTools\\TDM-GCC-64\\bin;C:\\dev-tools\\mingw64\\bin;${env:USERPROFILE}\\DevTools\\SFML\\bin;C:\\dev-tools\\sfml\\bin;${env:PATH}"
+                    "value": "${workspaceFolder}/build;${env:USERPROFILE}\DevTools\SFML\bin;${env:PATH}"
                 }
             ],
             "externalConsole": false,
             "MIMode": "gdb",
-            "miDebuggerPath": "gdb",
+            "miDebuggerPath": "C:\\dev-tools\\mingw64\\bin\\gdb.exe",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",

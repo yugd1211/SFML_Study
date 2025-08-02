@@ -116,7 +116,7 @@
             "command": "cmake",
             "args": [
                 "-G",
-                "MinGW Makefiles",
+                "Ninja",
                 "-S",
                 ".",
                 "-B",

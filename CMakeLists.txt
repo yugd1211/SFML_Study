@@ -24,7 +24,8 @@ if(WIN32)
 endif()
 
 # Find SFML
-find_package(SFML 2.6 COMPONENTS graphics window system REQUIRED)
+cmake_policy(SET CMP0074 NEW)
+find_package(SFML 2.6.1 CONFIG REQUIRED COMPONENTS graphics window system network audio)
 
 # Include directories
 include_directories(${SFML_INCLUDE_DIRS})

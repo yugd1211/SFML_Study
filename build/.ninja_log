@@ -1,0 +1,11 @@
+# ninja log v6
+54	821	7758622121131197	CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj	c6789da51bad4886
+69	853	7758622121281207	CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj	c79b1c459da37d15
+28	857	7758622120881205	CMakeFiles/cpp-sfml-project.dir/src/Board.cpp.obj	714e7b9e9e740c03
+859	1873	7758622129184331	cpp-sfml-project.exe	1d020125fc0f82c2
+41	859	7758622121001252	CMakeFiles/cpp-sfml-project.dir/src/Player.cpp.obj	df7ee41d5e0497bf
+45	863	7758622817586637	CMakeFiles/cpp-sfml-project.dir/src/Player.cpp.obj	df7ee41d5e0497bf
+33	869	7758622817461567	CMakeFiles/cpp-sfml-project.dir/src/Board.cpp.obj	714e7b9e9e740c03
+59	886	7758622817716623	CMakeFiles/cpp-sfml-project.dir/src/Window.cpp.obj	c6789da51bad4886
+74	913	7758622817866619	CMakeFiles/cpp-sfml-project.dir/src/main.cpp.obj	c79b1c459da37d15
+913	1917	7758622826259263	cpp-sfml-project.exe	1d020125fc0f82c2

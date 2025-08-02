@@ -1,0 +1,26 @@
+[
+{
+  "directory": "C:/Users/dbrud/Developemnt/SFML_Study/build",
+  "command": "C:\\Users\\dbrud\\DevTools\\mingw64\\bin\\g++.exe -IC:/Users/dbrud/Developemnt/SFML_Study/src -isystem C:/Users/dbrud/DevTools/SFML/include -g -std=gnu++17 -o CMakeFiles\\cpp-sfml-project.dir\\src\\Board.cpp.obj -c C:\\Users\\dbrud\\Developemnt\\SFML_Study\\src\\Board.cpp",
+  "file": "C:\\Users\\dbrud\\Developemnt\\SFML_Study\\src\\Board.cpp",
+  "output": "CMakeFiles\\cpp-sfml-project.dir\\src\\Board.cpp.obj"
+},
+{
+  "directory": "C:/Users/dbrud/Developemnt/SFML_Study/build",
+  "command": "C:\\Users\\dbrud\\DevTools\\mingw64\\bin\\g++.exe -IC:/Users/dbrud/Developemnt/SFML_Study/src -isystem C:/Users/dbrud/DevTools/SFML/include -g -std=gnu++17 -o CMakeFiles\\cpp-sfml-project.dir\\src\\Player.cpp.obj -c C:\\Users\\dbrud\\Developemnt\\SFML_Study\\src\\Player.cpp",
+  "file": "C:\\Users\\dbrud\\Developemnt\\SFML_Study\\src\\Player.cpp",
+  "output": "CMakeFiles\\cpp-sfml-project.dir\\src\\Player.cpp.obj"
+},
+{
+  "directory": "C:/Users/dbrud/Developemnt/SFML_Study/build",
+  "command": "C:\\Users\\dbrud\\DevTools\\mingw64\\bin\\g++.exe -IC:/Users/dbrud/Developemnt/SFML_Study/src -isystem C:/Users/dbrud/DevTools/SFML/include -g -std=gnu++17 -o CMakeFiles\\cpp-sfml-project.dir\\src\\Window.cpp.obj -c C:\\Users\\dbrud\\Developemnt\\SFML_Study\\src\\Window.cpp",
+  "file": "C:\\Users\\dbrud\\Developemnt\\SFML_Study\\src\\Window.cpp",
+  "output": "CMakeFiles\\cpp-sfml-project.dir\\src\\Window.cpp.obj"
+},
+{
+  "directory": "C:/Users/dbrud/Developemnt/SFML_Study/build",
+  "command": "C:\\Users\\dbrud\\DevTools\\mingw64\\bin\\g++.exe -IC:/Users/dbrud/Developemnt/SFML_Study/src -isystem C:/Users/dbrud/DevTools/SFML/include -g -std=gnu++17 -o CMakeFiles\\cpp-sfml-project.dir\\src\\main.cpp.obj -c C:\\Users\\dbrud\\Developemnt\\SFML_Study\\src\\main.cpp",
+  "file": "C:\\Users\\dbrud\\Developemnt\\SFML_Study\\src\\main.cpp",
+  "output": "CMakeFiles\\cpp-sfml-project.dir\\src\\main.cpp.obj"
+}
+]

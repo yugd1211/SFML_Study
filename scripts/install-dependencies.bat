@@ -74,4 +74,6 @@ if not exist "!SFML_PATH!" (
     echo SFML is already installed in user directory.
 )
 
+
+
 echo All dependencies are installed.
